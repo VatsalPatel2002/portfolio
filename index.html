@@ -267,6 +267,7 @@
     color: var(--accent);
     letter-spacing: 0.12em;
     text-transform: uppercase;
+    margin-top: 2rem;
     margin-bottom: 2rem;
     padding: 0.6rem 1rem;
     background: var(--accent-dim);
@@ -285,7 +286,7 @@
 
   .hero h1 {
     font-family: var(--font-display);
-    font-size: clamp(2.8rem, 6vw, 5.2rem);
+    font-size: clamp(2.2rem, 5vw, 4.5rem);
     font-weight: 800;
     line-height: 1.05;
     letter-spacing: -0.04em;
@@ -381,16 +382,36 @@
     position: absolute;
     inset: 0;
     border-radius: 60% 40% 55% 45% / 50% 50% 50% 50%;
-    background: linear-gradient(135deg, var(--accent-dim2), rgba(0, 217, 163, 0.05), transparent);
-    border: 1.5px solid rgba(0, 217, 163, 0.25);
-    animation: morphBlob 8s ease-in-out infinite;
-    box-shadow: 0 0 80px rgba(0, 217, 163, 0.2), inset 0 0 80px rgba(0, 217, 163, 0.05);
+    background: 
+      radial-gradient(circle at 30% 30%, rgba(0, 217, 163, 0.15) 0%, transparent 50%),
+      radial-gradient(circle at 70% 70%, rgba(0, 217, 163, 0.1) 0%, transparent 50%),
+      linear-gradient(135deg, var(--surface) 0%, var(--bg2) 100%);
+    border: 2px solid rgba(0, 217, 163, 0.3);
+    animation: morphBlob 12s ease-in-out infinite;
+    box-shadow: 
+      0 0 100px rgba(0, 217, 163, 0.15), 
+      inset 0 0 100px rgba(0, 217, 163, 0.08),
+      0 20px 40px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
   }
 
   @keyframes morphBlob {
-    0%, 100% { border-radius: 60% 40% 55% 45% / 50% 50% 50% 50%; }
-    33% { border-radius: 45% 55% 40% 60% / 60% 45% 55% 40%; }
-    66% { border-radius: 55% 45% 60% 40% / 40% 60% 45% 55%; }
+    0%, 100% { 
+      border-radius: 60% 40% 55% 45% / 50% 50% 50% 50%; 
+      transform: rotate(0deg) scale(1);
+    }
+    25% { 
+      border-radius: 45% 55% 40% 60% / 60% 45% 55% 40%; 
+      transform: rotate(90deg) scale(1.02);
+    }
+    50% { 
+      border-radius: 55% 45% 60% 40% / 40% 60% 45% 55%; 
+      transform: rotate(180deg) scale(0.98);
+    }
+    75% { 
+      border-radius: 40% 60% 45% 55% / 55% 40% 60% 45%; 
+      transform: rotate(270deg) scale(1.01);
+    }
   }
 
   .hero-initials {
@@ -1304,7 +1325,7 @@
     <div class="hero-grid">
       <div class="hero-content">
         <div class="hero-eyebrow">✨ Available for work</div>
-        <h1>Hi, I'm<br><span class="accent">Vatsal Patel</span></h1>
+        <h1>Hi, I'm <span class="accent">Vatsal Patel</span></h1>
         <p class="hero-role">// <span>Full-Stack Engineer</span></p>
         <p class="hero-bio">
           I craft scalable digital experiences across web and mobile platforms.
@@ -1456,6 +1477,17 @@
           </div>
           <div class="timeline-item">
             <div class="timeline-dot"></div>
+            <div class="timeline-date">2021 — 2023</div>
+            <div class="timeline-title">Minor Degree in Electric Vehicles</div>
+            <div class="timeline-sub">A.D. Patel Institute Of Technology</div>
+            <ul class="timeline-list">
+              <li>Completed a specialized minor program focused on Electric Vehicle technologies and sustainable mobility.</li>
+              <li>Studied EV powertrain systems, battery technology, charging infrastructure, and energy management.</li>
+              <li>Worked on practical projects related to electric mobility and automotive innovation.</li>
+            </ul>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
             <div class="timeline-date">2018 — 2020</div>
             <div class="timeline-title">HSC (12th Science)</div>
             <div class="timeline-sub">Smt RC Patel Secondary and Higher Secondary School, Gandhinagar</div>
@@ -1486,51 +1518,65 @@
 
     <div class="featured-projects">
       <div class="project-card fade-in">
-        <a href="https://play.google.com/store/apps/details?id=com.themarineguardiandashboard.app" target="_blank" class="project-link">↗</a>
         <div class="project-num">// project_01</div>
-        <h3>TMG Dash</h3>
-        <p>A cloud-based marine surveillance platform that lets boat owners monitor and manage their vessels worldwide — with real-time GPS tracking, geofencing alerts, and remote control over onboard systems.</p>
+        <h3>Real-time Tracking & Monitoring Platform</h3>
+        <p>Built scalable real-time tracking system with live map updates, geofencing, alerting, and telemetry processing. Migrated from timer-based polling to event-driven architecture using Socket.io and MQTT. Reduced unnecessary API calls by 80%, significantly improving system performance.</p>
         <div class="project-highlight">
-          Real-time vessel tracking with customizable geofence alerts and location history logs
+          Migrated to event-driven architecture reducing API calls by 80% and optimized map rendering with data caching
         </div>
         <div class="project-stack">
           <span class="stack-tag">Flutter</span>
-          <span class="stack-tag">BLE</span>
-          <span class="stack-tag">Cloud</span>
-          <span class="stack-tag">GPS</span>
-          <span class="stack-tag">Play Store</span>
+          <span class="stack-tag">Riverpod</span>
+          <span class="stack-tag">Socket.io</span>
+          <span class="stack-tag">MQTT</span>
+          <span class="stack-tag">Google Maps SDK</span>
+          <span class="stack-tag">Node.js</span>
+          <span class="stack-tag">Angular</span>
         </div>
       </div>
 
       <div class="project-card fade-in fade-in-delay-1">
-        <a href="https://play.google.com/store/apps/details?id=com.themarineguardian.app" target="_blank" class="project-link">↗</a>
         <div class="project-num">// project_02</div>
-        <h3>TMG BT</h3>
-        <p>A specialized BLE companion app for TMG marine devices. Users connect via IMEI, then remotely monitor and toggle onboard output sensors directly from their mobile phone over Bluetooth Low Energy.</p>
+        <h3>Real-time Communication & Device Control Platform</h3>
+        <p>Built a Bluetooth Low Energy (BLE)-based communication system for offline marine environments with limited or no network connectivity. Developed a cross-platform Flutter application for real-time device control and monitoring via BLE communication.</p>
         <div class="project-highlight">
-          BLE device pairing via IMEI with live sensor control — no internet required onboard
+          BLE-based offline communication system for marine environments with alarm management
         </div>
         <div class="project-stack">
           <span class="stack-tag">Flutter</span>
+          <span class="stack-tag">GetX</span>
           <span class="stack-tag">BLE</span>
-          <span class="stack-tag">IoT</span>
-          <span class="stack-tag">Sensors</span>
-          <span class="stack-tag">Play Store</span>
         </div>
       </div>
 
       <div class="project-card fade-in fade-in-delay-2">
         <div class="project-num">// project_03</div>
-        <h3>Ghanshyam Mahotsav</h3>
-        <p>A spiritual enrichment app offering a vast digital library of books, mala jap meditation timer, secure user auth, and admin-controlled book uploads — a comprehensive companion for spiritual practice.</p>
+        <h3>Live Video Streaming System</h3>
+        <p>Built a low-latency video streaming pipeline integrated into mobile applications for real-time video delivery. Supported up to 8 concurrent camera feeds with stable performance across devices. Implemented real-time video communication using WebRTC.</p>
         <div class="project-highlight">
-          Mala jap counter + curated spiritual library with admin CMS for content management
+          Low-latency video streaming supporting 8 concurrent feeds with WebRTC and AWS Kinesis
         </div>
         <div class="project-stack">
+          <span class="stack-tag">WebRTC</span>
+          <span class="stack-tag">AWS Kinesis</span>
           <span class="stack-tag">Flutter</span>
-          <span class="stack-tag">Firebase</span>
-          <span class="stack-tag">Admin Panel</span>
-          <span class="stack-tag">Play Store</span>
+          <span class="stack-tag">Angular</span>
+        </div>
+      </div>
+
+      <div class="project-card fade-in fade-in-delay-3">
+        <div class="project-num">// project_04</div>
+        <h3>E-Commerce Application</h3>
+        <p>Built a full-stack e-commerce platform with responsive design, optimized purchase flow, and product management including category filtering, inventory tracking, and order processing. Implemented JWT-based authentication and RBAC for Admin, Seller, and Buyer roles.</p>
+        <div class="project-highlight">
+          Full-stack e-commerce with JWT auth, RBAC, and optimized user experience
+        </div>
+        <div class="project-stack">
+          <span class="stack-tag">Node.js</span>
+          <span class="stack-tag">Angular</span>
+          <span class="stack-tag">Express.js</span>
+          <span class="stack-tag">MongoDB</span>
+          <span class="stack-tag">JWT</span>
         </div>
       </div>
     </div>
@@ -1578,34 +1624,48 @@
     </div>
     <div class="skills-grid">
       <div class="skill-category fade-in fade-in-delay-1">
-        <div class="skill-cat-label">// frontend</div>
+        <div class="skill-cat-label">// languages</div>
         <div class="skill-item">
-          <span class="skill-name">HTML / CSS</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:95%"></div></div>
+          <span class="skill-name">Dart</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
         </div>
         <div class="skill-item">
           <span class="skill-name">JavaScript</span>
           <div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div>
         </div>
         <div class="skill-item">
-          <span class="skill-name">Angular</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">React.js</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div>
+          <span class="skill-name">TypeScript</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
         </div>
       </div>
       <div class="skill-category fade-in fade-in-delay-2">
-        <div class="skill-cat-label">// backend</div>
+        <div class="skill-cat-label">// mobile development</div>
+        <div class="skill-item">
+          <span class="skill-name">Flutter (Riverpod, GetX)</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div>
+        </div>
+      </div>
+      <div class="skill-category fade-in fade-in-delay-3">
+        <div class="skill-cat-label">// web development</div>
+        <div class="skill-item">
+          <span class="skill-name">Angular</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div>
+        </div>
         <div class="skill-item">
           <span class="skill-name">Node.js</span>
           <div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div>
         </div>
         <div class="skill-item">
           <span class="skill-name">Express.js</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
         </div>
+        <div class="skill-item">
+          <span class="skill-name">REST APIs</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:92%"></div></div>
+        </div>
+      </div>
+      <div class="skill-category fade-in fade-in-delay-4">
+        <div class="skill-cat-label">// databases & real-time</div>
         <div class="skill-item">
           <span class="skill-name">MongoDB</span>
           <div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div>
@@ -1614,39 +1674,36 @@
           <span class="skill-name">MySQL</span>
           <div class="skill-bar-wrap"><div class="skill-bar" style="width:75%"></div></div>
         </div>
-      </div>
-      <div class="skill-category fade-in fade-in-delay-3">
-        <div class="skill-cat-label">// mobile</div>
         <div class="skill-item">
-          <span class="skill-name">Flutter</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
+          <span class="skill-name">WebSockets</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div>
         </div>
         <div class="skill-item">
-          <span class="skill-name">Dart</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div>
+          <span class="skill-name">MQTT</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:75%"></div></div>
         </div>
         <div class="skill-item">
-          <span class="skill-name">BLE / IoT</span>
+          <span class="skill-name">Socket.io</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:78%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">WebRTC</span>
           <div class="skill-bar-wrap"><div class="skill-bar" style="width:75%"></div></div>
         </div>
       </div>
-      <div class="skill-category fade-in fade-in-delay-4">
-        <div class="skill-cat-label">// tools & other</div>
-        <div class="skill-item">
-          <span class="skill-name">Git / GitHub</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div>
-        </div>
-        <div class="skill-item">
-          <span class="skill-name">REST APIs</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:92%"></div></div>
-        </div>
+      <div class="skill-category fade-in fade-in-delay-5">
+        <div class="skill-cat-label">// tools & platforms</div>
         <div class="skill-item">
           <span class="skill-name">Firebase</span>
           <div class="skill-bar-wrap"><div class="skill-bar" style="width:78%"></div></div>
         </div>
         <div class="skill-item">
-          <span class="skill-name">Play Store Deploy</span>
-          <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
+          <span class="skill-name">CI/CD</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div>
+        </div>
+        <div class="skill-item">
+          <span class="skill-name">Git</span>
+          <div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div>
         </div>
       </div>
     </div>
